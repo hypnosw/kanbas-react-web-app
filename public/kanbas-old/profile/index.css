@@ -1,0 +1,76 @@
+.wd-profile-page{
+    display:grid;
+    grid-template-columns: 85px 1fr;
+    /* grid-template-columns: 85px 170px 1fr; */
+    margin:0px;
+    padding:0px;
+    height:100vh;
+}
+
+.wd-account-profile-section{
+    /* display: inline-block; */
+    width:100%;
+}
+
+.wd-top-bar{
+    margin:24px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #C7CDD1;
+    font-size: 18px;
+    color:#2D3B45;
+}
+
+.wd-main-container{
+    display:flex;
+    flex-direction: row;
+    width: 100%;
+    
+}
+
+.wd-account-details{
+    display:flex;
+    width:100%;
+}
+
+.wd-edit-profile-button{
+    width:1fr; 
+    display: flex; 
+    flex: 1;
+    align-items: start;
+    justify-content: right;
+    padding-right:20px;
+}
+
+.wd-account-info{
+    width:1fr; 
+    display: block; 
+    flex:3;
+}
+
+.wd-page-wrapper{
+    width: 100%;
+}
+
+.wd-account-info > i{
+    color:gray;
+    border-radius:50%;
+    padding:15px;
+    border: 2px solid #d3d9d9;
+}
+.wd-account-info * {
+    margin-bottom: 20px;
+}
+
+.wd-account-info > p > span > a{
+    color:#b52828;
+}
+
+.wd-account-info > p > span:hover{
+    text-decoration: underline;
+    color:rgb(125, 3, 17);
+}
+
+.wd-account-info a{
+    color:#b52828;
+}
+

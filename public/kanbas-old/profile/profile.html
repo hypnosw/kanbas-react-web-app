@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Hypnos Kanbas Profile</title>
+        <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/><head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://kit.fontawesome.com/a78a37b29f.js" crossorigin="anonymous"></script>
+        <link href="../kanbas-css/style.css" rel="stylesheet">
+        <link href="../kanbas-css/sidebar.css" rel="stylesheet"/>
+        <link href="profile.css" rel="stylesheet">
+        <link href="../kanbas-css/expanded-nav.css" rel="stylesheet"/>
+    </head>
+
+    <body>
+        <div class="wd-page-wrapper">
+            <nav class="container-flex" id="wd-sidebar">
+                <ul class="wd-menu-list">
+                    <!-- NEU Icon -->
+                            <li>
+                                <a href="../home.html">
+                                    <img src="../../images/neu-logo.png" id="wd-neuLogo">
+                                </a>
+                            </li>
+
+                            <!-- Account -->
+                            <li  class="wd-active-item">
+                                <a href="index.html">
+                                    <i class="fa fa-user fa-3x wd-sidebar-symbols" id="wd-account-icon"></i>
+                                    Account
+                                </a>
+                            </li>
+
+                            <!-- Dashboard -->
+                            <li>
+                                <a href="../dashboard.html">
+                                    <i class="fa fa-gauge fa-3x wd-sidebar-symbols"></i>
+                                    Dashboard
+                                </a>
+                            </li>
+
+                            <!-- Courses -->
+                            <li>
+                                <a href="../home.html">
+                                    <i class="fa fa-book fa-3x wd-sidebar-symbols"></i>
+                                    Courses
+                                </a>
+                            </li>
+
+                            <!-- Calendar -->
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-calendar fa-3x wd-sidebar-symbols"></i>
+                                    Calendar
+                                </a>
+                            </li>
+
+                            <!-- Inbox -->
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-inbox fa-3x wd-sidebar-symbols"></i>
+                                    Inbox
+                                </a>
+                            </li>
+
+                            <!-- History -->
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-clock fa-3x wd-sidebar-symbols"></i>
+                                    History
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-tv fa-3x wd-sidebar-symbols"></i>
+                                    Studio
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-creative-commons fa-3x wd-sidebar-symbols"></i>
+                                    Commons
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-question fa-3x wd-sidebar-symbols"></i>
+                                    Help
+                                </a>
+                            </li>
+                        </ul>
+            </nav>
+
+            <div class="wd-main-content-wrapper">
+                <!-- Account Navigation -->
+                <div class="wd-expanded-nav">
+                    <ul>
+                        <li>
+                                <a href="#">Notifications</a>
+                        </li>
+
+                        <li class="wd-active-expanded-item">
+                                <a href="index.html">Profile</a>
+                        </li>
+                        
+                        <li>
+                                <a href="#">Files</a>
+                        </li>
+                        <li>
+                                <a href="#">Settings</a>
+                        </li>
+                        <li>
+                                <a href="#">ePortfolios</a>
+                        </li>
+                        <li>
+                                <a href="#">Shared Content</a>
+                        </li>
+                        <li>
+                                <a href="#">The Hub</a>
+                        </li>
+                        <li>
+                                <a href="#">Qwickly Course Tools</a>
+                        </li>
+                        <li>
+                                <a href="#">Global Announcements</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Editing Info-->
+                <div class="wd-main-container">
+                    <i class="fa fa-user fa-5x"></i>
+
+                    <h2>Hypnos Wu</h2>
+
+                    <div>
+                        <p class="wd-input-labels">Name:*</p>
+                        <input type="text" class="form-control" placeholder="Hypnos Wu">
+                    </div>
+
+
+                    <div>
+                        <p class="wd-input-labels" for="pronoun">Pronouns:</p>
+                        <select id="pronoun">
+                            <option>None</option>
+                        </select>
+                    </div>
+
+                    
+                    <div>
+                        <p class="wd-input-labels">Title:</p>
+                        <input type="text" class="form-control">
+                    </div>
+
+                    <div>
+                        <h3>Contact</h3>
+                        <p>No registered services, you can add some on the 
+                            <span>
+                                <a href="#" style="text-decoration: none;">
+                                    settings
+                                </a>
+                            </span>
+                            page.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Biography</h3>
+                        <textarea class="form-control" 
+                        id="exampleFormControlTextarea1" 
+                        rows="3">Working hard to get an A in CS5610
+                        </textarea>
+                    </div>
+
+
+                    <div class="wd-links-container">
+                        <h3>Links</h3>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Title</th>
+                                    <th scope="col"> </th>
+                                    <th scope="col">URL</th>
+                                    <th scope="col"> </th>
+                                </tr>
+                            </thead>
+    
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input type="text" class="form-control" value="YouTube">
+                                    </td>
+    
+                                    <td>
+                                        <i class="fa-solid fa-arrow-right"></i>                                    
+                                    </td>
+                                    <td class="wd-link-url-input">
+                                        <input type="text" class="form-control" value="youtube.com">
+    
+                                    </td>
+    
+                                    <td>
+                                        <a href="#">
+                                            <i class="fa-solid fa-xmark fa-2x" style="color: #db2929;">
+                                            </i>                                        
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-light">Add another link</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="wd-2-buttons">
+                        <button type="button" class="btn btn-light"  onclick="window.location.href='index.html'">
+                            Cancel
+                        </button>
+                        <button type="button" class="btn btn-danger" onclick="window.location.href='index.html'">
+                            Save Profile
+                        </button>
+                    </div>
+
+
+
+
+
+                </div>
+
+                <!-- Cancel Editing Button -->
+                <div class="wd-button-container float-end"> <!-- Float-right does not work -->
+                    <button type="button" class="btn btn-outline-dark" onclick="window.location.href='index.html'">								
+                        <i class="fa fa-pencil"></i>
+                        Cancel Editing
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+</html>

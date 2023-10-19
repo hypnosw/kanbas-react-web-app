@@ -1,0 +1,115 @@
+.wd-page-wrapper{
+    display:grid;
+    grid-template-columns: 85px 1fr;
+    height:100vh;
+}
+.wd-main-content-wrapper{
+    display:grid;
+    grid-template-columns: 195px 3fr 1fr;
+    height:100%;
+}
+
+.wd-main-container *{
+    margin-bottom:10px;
+}
+
+.wd-main-container > i{
+    color:gray;
+    border-radius:50%;
+    padding:15px;
+    border: 2px solid #d3d9d9;
+}
+
+.wd-button-container{
+    justify-content: right;
+    display: flex;
+    align-items: start;
+}
+
+.wd-button-container button{
+    margin:25px;
+    margin-right: 50px;
+    font-size:14px;
+}
+
+.wd-input-labels{
+    font-weight: bold;
+}
+#pronoun{
+    width:30%;
+    border:1px solid #d3d9d9;
+    border-radius: 5px;
+    color:gray;
+}
+
+.wd-main-container > div > p > span > a{
+    color:#b52828;
+}
+
+.wd-main-container > div > p > span:hover{
+    text-decoration: underline;
+    color:#b52828;
+}
+
+.wd-biography-input{
+    width:350px;
+    height:125px;
+    border:1px solid #d3d9d9;
+}
+
+.table thead{
+    text-align: center;
+}
+
+.table tr td{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.tr td input{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.table tr td button{
+    width:150px;
+}
+
+.wd-links-container{
+    margin-bottom: 17px;
+    border-bottom: 1px solid #d3d9d9;
+    width:360px;
+}
+
+.wd-2-buttons{
+    width:360px;
+    text-align:right;
+}
+
+#exampleFormControlTextarea1{
+    width:30%;
+}
+
+.wd-link-url-input input{
+    width:120px;
+}
+
+.table {
+    border: none;
+}
+
+.table thead th {
+    border: none;
+}
+
+.table tbody tr {
+    border: none;
+}
+
+.table td {
+    border: none;
+    margin-top: 0px;
+    padding:0px;
+    text-align: center;
+    vertical-align: middle;
+}

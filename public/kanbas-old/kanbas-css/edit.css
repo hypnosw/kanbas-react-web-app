@@ -1,0 +1,140 @@
+html, body{
+    min-width:1200px;
+}
+.breadcrumb li a{
+    color:#b52828;
+    text-decoration: none;
+}
+
+.wd-entire-page{
+    min-height:100vh;
+}
+
+
+
+.wd-published-message p{
+    color:green;
+    text-align: center;
+}
+
+.wd-published-message p i{
+    color:green;
+}
+
+.wd-editing-items *{
+    margin-bottom: 10px;
+}
+
+.wd-input-fields{
+    min-width:600px;
+    margin:0px;
+}
+.wd-input-labels{
+    display:flex;
+    min-width:150px;
+    justify-content: end;
+    margin-right:10px;
+    align-items: center;
+    text-align: center;
+}
+
+.wd-drop-down{
+    background-color: white;
+    border:1px solid #dee2e6;
+    text-align: start;
+    height:30px;
+    border-radius: 3px;
+    padding:3px 0px 3px 10px;
+}
+
+.wd-points-input{
+    max-width:600px;
+}
+
+.wd-checkbox-msg{
+    min-width:350x;
+    padding-left:10px;
+
+}
+
+.wd-group-input-box{
+    border:1px solid #dee2e6;
+    width:600px;
+    border-radius: 3px;
+}
+
+.wd-group-input-box select{
+    min-width:50%;
+    margin:8px;
+}
+
+.wd-online-entry-options-text{
+    font-weight: bold;
+    padding:8px;
+}
+
+.wd-group-input-box ul{
+    padding:8px;
+}
+
+.wd-submission-type-label{
+    display:flex;
+    min-width:150px;
+    justify-content:end;
+    margin-right:10px;
+    align-self: start;
+}
+
+.wd-assign-box p{
+    font-weight: bold;
+    padding:8px;
+    padding-bottom: 0px;
+    margin-bottom:3px;
+}
+
+.wd-assign-box{
+    border:1px solid #dee2e6;
+    border-radius: 3px;
+
+}
+
+#wd-add-button button{
+    margin:0px;
+}
+
+#wd-add-button{
+    margin:0px;
+}
+
+.wd-assign-two{
+    width:95%;
+
+}
+
+
+@media (max-width:1260px) {
+    .wd-status-bar-container{
+        display:none;
+    }
+}
+
+@media (max-width:800px){
+    .wd-expanded-nav-container{
+        display:none;
+    }
+    .wd-sidebar-container{
+        display:none;
+    }
+    .wd-breadcrumb-container{
+        display:none;
+    }
+    .wd-small-navbar{
+        display:normal;
+    }
+}
+
+@media (min-width:801px){
+    .wd-small-navbar{
+        display:none;
+    }
+}

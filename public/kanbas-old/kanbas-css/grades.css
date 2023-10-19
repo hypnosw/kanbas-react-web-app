@@ -1,0 +1,43 @@
+.wd-switch-buttons{
+    min-width:100px;
+    min-height:40px;
+    margin:0px 5px 0px 5px;
+}
+
+.wd-gear-btn{
+    border:none;
+    width:40px;
+    height:40px;
+    margin-left:4px;
+}
+
+.wd-hr{
+    margin-bottom:3px;
+}
+
+.wd-entire-page a{
+    text-decoration: none;
+    color:rgb(167, 21, 35);
+}
+
+.wd-filter-section p{
+    font-weight: bold;
+}
+
+.wd-search-field input{
+    max-width:95%;
+}
+
+.wd-filter-button{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.wd-entire-page{
+    min-height:100vh;
+}
+
+.table .wd-student-name{
+    color:rgb(167, 21, 35);
+}
+

@@ -1,0 +1,50 @@
+.wd-main-wrapper{
+    display:grid;
+    grid-template-columns: 85px 1fr;
+    height:100vh;
+    gap:10px;
+}
+
+.wd-content-wrapper{
+    margin-right:20px;
+}
+.wd-content-wrapper h1 hr{
+    border:1px solid #c7cdd1;
+}
+
+.wd-courses-grid{
+    margin-left:10px;
+    margin-right:10px;
+}
+
+.wd-published-courses-title hr{
+    border:1px solid #c7cdd1;
+}
+
+.card{
+    width:260px;
+}
+
+.wd-course-card > a > div{
+    width:250px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height:300px;
+}
+
+.card-title{
+    font-size:18px;
+    font-weight: bold;
+    color:rgb(26, 127, 147);
+}
+
+.card-title{
+    height:43px;
+}
+
+.wd-course-card{
+    margin-left:20px;
+    margin-right:20px;
+}
+
+

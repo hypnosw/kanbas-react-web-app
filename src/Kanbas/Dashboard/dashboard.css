@@ -1,0 +1,26 @@
+.wd-cards .course-card .card{
+    margin:30px 0px 30px 0px;
+    width:250px;
+    height:300px;
+}
+
+.wd-cards .course-card *{
+    text-decoration: none;
+}
+
+.wd-cards .course-card .card-title{
+    font-size:18px;
+    font-weight: bold;
+    color:rgb(26, 127, 147);
+    height:43px;
+}
+
+.wd-cards .course-card .card-img-top{
+    background-color: white
+}
+
+.wd-courses-wrapper{
+    width:80%;
+    margin-left:2%;
+}
+
