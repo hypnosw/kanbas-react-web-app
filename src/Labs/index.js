@@ -9,6 +9,7 @@ function Labs() {
     return(
         <div>
             <Nav/>
+            <h1>Pick an option from NavBar</h1>
             <Routes>
                 <Route path="/a3" element={<Assignment3/>}></Route>
                 <Route path="/a4" element={<Assignment4/>}></Route>
