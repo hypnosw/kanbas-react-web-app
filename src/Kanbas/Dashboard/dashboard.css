@@ -23,4 +23,21 @@
     width:80%;
     margin-left:2%;
 }
+.wd-add-course-btn{
+    min-width:100px;
+    max-height:45px;
+    margin-right:50px;
+}
 
+.wd-course-btn{
+    margin-top: 0px;
+    border-radius: 4px;
+    height:30px;
+    padding-left: 9px;
+    padding-right:9px;
+}
+.wd-delete-btn{
+    background-color: indianred;
+    border:none;
+    color:mintcream;
+}
