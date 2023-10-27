@@ -5,6 +5,7 @@ import "../../kanbas-styles.css";
 import "./index.css";
 import {FaPlus} from "react-icons/fa";
 import {FaEllipsis} from "react-icons/fa6";
+import {Navigate} from "react-router";
 
 
 function Assignments() {
@@ -20,9 +21,10 @@ function Assignments() {
                     <button type="button" className="btn wdKanbasBgGray">
                         <FaPlus/>Group
                     </button>
-                    <button type="button" className="btn btn-danger">
-                        <FaPlus/>Assignment
-                    </button>
+
+                    <Link to="/assignment" className="btn btn-danger">
+                        <FaPlus/> Assignment
+                    </Link>
                     <button type="button" className="btn wdKanbasBgGray">
                         <FaEllipsis/>
                     </button>
