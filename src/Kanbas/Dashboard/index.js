@@ -24,6 +24,9 @@ function Dashboard() {
         setCourses(
             courses.map((c) => {
                 if (c._id === course._id) {
+                    c.name = course.name;
+                    c.startDate = course.startDate;
+                    c.endDate = course.endDate;
                     return course;
                 } else {
                     return c;
