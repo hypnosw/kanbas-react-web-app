@@ -25,3 +25,12 @@
 .list-group-item.wd-module-item p{
     margin:0px;
 }
+
+.wd-module-title-input{
+    height:38px;
+    margin-bottom: 8px;
+}
+
+.wd-inputs{
+    min-width:300px !important;
+}
