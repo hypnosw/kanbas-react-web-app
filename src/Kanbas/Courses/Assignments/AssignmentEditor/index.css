@@ -1,0 +1,10 @@
+.form-control.wd-description-input{
+    height:100px;
+    margin-bottom: 15px;
+}
+.btn.btn-outline-dark.wdKanbasBgGray{
+    border-radius: 3px;
+}
+.wd-available-from{
+    width: 48%;
+}

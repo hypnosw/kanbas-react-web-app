@@ -22,7 +22,7 @@ function Assignments() {
                         <FaPlus/>Group
                     </button>
 
-                    <Link to="/assignment" className="btn btn-danger">
+                    <Link to={`/Kanbas/Courses/Assignments/assignment-editor`} className="btn btn-danger">
                         <FaPlus/> Assignment
                     </Link>
                     <button type="button" className="btn wdKanbasBgGray">
@@ -43,7 +43,7 @@ function Assignments() {
                         <div>
                             <small>
                                 <span className="wdKanbasRed">Multiple Modules</span> |
-                                Due Sep 18 at 11:59PM | 100 pts
+                                Due {assignment.dueDate} | {assignment.points} pts
                             </small>
                         </div>
 

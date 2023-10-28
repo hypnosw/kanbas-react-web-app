@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import db from "../../../Database";
+import "./index.css";
 
 
 function AssignmentEditor() {
@@ -16,17 +17,54 @@ function AssignmentEditor() {
         navigate(`/Kanbas/Courses/${courseId}/Assignments`);
     };
     return (
-        <div>
-            <h2>Assignment Name</h2>
-            <input value={assignment.title}
-                   className="form-control mb-2" />
-            <Link to={`/Kanbas/Courses/${courseId}/Assignments`}
-                  className="btn btn-danger">
-                Cancel
-            </Link>
-            <button onClick={handleSave} className="btn btn-success me-2">
-                Save
-            </button>
+        <div className="col-11">
+            <div>
+                <h2>Assignment Name</h2>
+                <input value={assignment.title}
+                       className="form-control mb-2" />
+                <input value={assignment.description} className="form-control wd-description-input"/>
+            </div>
+
+            <div className="justify-content-end d-flex">
+                <div className="col-8 wd-points-assign">
+                    <label className="d-flex align-items-center">Points
+                        <input className="form-control ml-2" value="100"/>
+                    </label>
+                    <label className="d-flex mt-3 ">
+                        Assign
+                        <div className="form-control">
+                            <div className="mb-3">
+                                <strong>Due</strong>
+                                <input type="date" className="form-control"/>
+                            </div>
+                            <div className="justify-content-between d-flex">
+                                <div className="wd-available-from">
+                                    <strong>Available from</strong>
+                                    <input type="date" className="form-control"/>
+                                </div>
+                                <div className="wd-available-from">
+                                    <strong>Until</strong>
+                                    <input type="date" className="form-control"/>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+
+                </div>
+
+            </div>
+            <hr/>
+            <div className="d-block float-end">
+                <Link to={`/Kanbas/Courses/${courseId}/Assignments`}
+                      className="btn btn-outline-dark wdKanbasBgGray wdKanbasBorderGray">
+                    Cancel
+                </Link>
+                <button onClick={handleSave} className="btn btn-danger me-2">
+                    Save
+                </button>
+            </div>
+
+
         </div>
     );
 }

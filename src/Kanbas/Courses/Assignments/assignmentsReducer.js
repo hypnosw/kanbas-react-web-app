@@ -4,7 +4,7 @@ import {createSlice} from "@reduxjs/toolkit";
 const initialState = {
     assignments:db.assignments,
     newAssignment:{
-        _id:"new ID",
+        _id:"New ",
         title:"New Title",
         course:"New Course",
     },
@@ -16,7 +16,7 @@ const assignmentSlice = createSlice(
         initialState,
         reducers:{
             addAssignment:(state, action)=>{
-                
+
             },
             deleteAssignment:(state, action)=>{
 

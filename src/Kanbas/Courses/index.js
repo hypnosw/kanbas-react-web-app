@@ -56,14 +56,13 @@ function Courses({courses}) {
                         <Route path="Home" element={<Home/>} />
                         <Route path="Modules" element={<Modules/>} />
                         <Route path="Assignments" element={<Assignments/>} />
-
-                        <Route path="Assignments" element={<h1>Assignments</h1>} />
                         <Route
                             path="Assignments/:assignmentId"
                             element={<AssignmentEditor/>}/>
                         />
                         <Route path="Grades" element={<Grades/>}/>
-                        <Route path="Grades" element={<h1>Grades</h1>} />
+                        {/*<Route path="/assignment-editor" element={<AssignmentEditor/>}/>*/}
+
                     </Routes>
                 </div>
             </div>

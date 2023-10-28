@@ -10,6 +10,7 @@ import Courses from "./Courses";
 import db from "./Database";
 import {Provider} from "react-redux";
 import store from "./store";
+import AssignmentEditor from "./Courses/Assignments/AssignmentEditor";
 
 
 
@@ -58,6 +59,7 @@ function Kanbas() {
                             deleteCourse={deleteCourse}
                             updateCourse={updateCourse}/>} />
                         <Route path="Courses/:courseId/*" element={<Courses courses={courses}/>} />
+
                     </Routes>
                 </div>
             </div>
