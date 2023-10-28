@@ -17,7 +17,7 @@ function AssignmentEditor() {
         navigate(`/Kanbas/Courses/${courseId}/Assignments`);
     };
     return (
-        <div className="col-11">
+        <div className="col-11 wd-wrapper">
             <div>
                 <h2>Assignment Name</h2>
                 <input value={assignment.title}
@@ -28,11 +28,11 @@ function AssignmentEditor() {
             <div className="justify-content-end d-flex">
                 <div className="col-8 wd-points-assign">
                     <label className="d-flex align-items-center">Points
-                        <input className="form-control ml-2" value="100"/>
+                        <input className="form-control wd-points-input" value="100"/>
                     </label>
                     <label className="d-flex mt-3 ">
                         Assign
-                        <div className="form-control">
+                        <div className="form-control wd-assign-box">
                             <div className="mb-3">
                                 <strong>Due</strong>
                                 <input type="date" className="form-control"/>

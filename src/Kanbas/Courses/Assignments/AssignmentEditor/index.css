@@ -8,3 +8,13 @@
 .wd-available-from{
     width: 48%;
 }
+.wd-wrapper{
+    max-width:800px;
+}
+
+.form-control.wd-assign-box{
+    margin-left:6px;
+}
+.wd-points-input{
+    margin-left:6px;
+}
