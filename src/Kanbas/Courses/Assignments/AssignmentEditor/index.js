@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import db from "../../../Database";
 import "./index.css";
 import {useDispatch, useSelector} from "react-redux";
-import {addAssignment, setNewAssignment} from "../assignmentsReducer";
+import {addAssignment, emptyNewAssignment, setNewAssignment} from "../assignmentsReducer";
+import jsonStringify from "../../../../Labs/a3/JsonStringify";
 
 
 function AssignmentEditor() {
@@ -17,12 +18,10 @@ function AssignmentEditor() {
                        assignments.find((assignment)=>(assignment._id === assignmentId)) :
                        newAssignment;
 
+
     const navigate = useNavigate();
-    console.log(assignment);
-
-    if(assignmentId !== "new"){
-
-    }
+    console.log("New Assignment:" + JSON.stringify(newAssignment));
+    console.log("Assignment:" + JSON.stringify(assignment));
 
     return (
         <div className="col-11 wd-wrapper">
@@ -124,7 +123,8 @@ function AssignmentEditor() {
             <hr/>
             <div className="d-block float-end">
                 <Link to={`/Kanbas/Courses/${courseId}/Assignments`}
-                      className="btn btn-outline-dark wdKanbasBgGray wdKanbasBorderGray">
+                      className="btn btn-outline-dark wdKanbasBgGray wdKanbasBorderGray"
+                onClick={()=>dispatch(emptyNewAssignment())}>
                     Cancel
                 </Link>
                 <button onClick={
