@@ -32,14 +32,14 @@ const assignmentSlice = createSlice(
             deleteAssignment:(state, action)=>{
                 state.assignments = state.assignments.filter((a)=> a._id !== action.payload);
             },
-            updateAssignment:(state, action)=>{
-                state.assignments = state.assignments.map((a)=>{
-                    if(a._id === state.newAssignment._id){
-                        return state.newAssignment;
-                    } else{
-                        return a;
-                    }
-                })
+            updateAssignment: (state, action) => {
+                const updatedAssignmentIndex = state.assignments.findIndex(
+                    (a) => a._id === action.payload._id
+                );
+
+                if (updatedAssignmentIndex !== -1) {
+                    state.assignments[updatedAssignmentIndex] = action.payload;
+                }
             },
             setNewAssignment:(state, action)=>{
                 state.newAssignment = action.payload;

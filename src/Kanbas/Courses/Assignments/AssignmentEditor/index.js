@@ -3,7 +3,12 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import db from "../../../Database";
 import "./index.css";
 import {useDispatch, useSelector} from "react-redux";
-import {addAssignment, emptyNewAssignment, setNewAssignment} from "../assignmentsReducer";
+import {
+    addAssignment,
+    emptyNewAssignment,
+    setNewAssignment,
+    updateAssignment
+} from "../assignmentsReducer";
 import jsonStringify from "../../../../Labs/a3/JsonStringify";
 
 
@@ -129,10 +134,15 @@ function AssignmentEditor() {
                 </Link>
                 <button onClick={
                     ()=>{
-                        dispatch(setNewAssignment(
-                            {...assignment, course:courseId}
-                        ));
-                        dispatch(addAssignment());
+                        if(assignmentId === "new"){
+                            dispatch(setNewAssignment(
+                                {...assignment, course:courseId}
+                            ));
+                            dispatch(addAssignment());
+                        }
+                        else {
+                            dispatch(updateAssignment(assignment));
+                        }
                         navigate(`/Kanbas/Courses/${courseId}/Assignments`);
 
                     }
