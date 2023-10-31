@@ -2,49 +2,117 @@ import React from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import db from "../../../Database";
 import "./index.css";
+import {useDispatch, useSelector} from "react-redux";
+import {addAssignment, setNewAssignment} from "../assignmentsReducer";
 
 
 function AssignmentEditor() {
-    const { assignmentId } = useParams();
-    const assignment = db.assignments.find(
-        (assignment) => assignment._id === assignmentId);
+    const assignments = useSelector((state)=>state.assignmentsReducer.assignments);
+    const newAssignment = useSelector((state)=>state.assignmentsReducer.newAssignment);
+    const dispatch = useDispatch();
 
+    const { courseId, assignmentId } = useParams();
 
-    const { courseId } = useParams();
+    const assignment = assignmentId  !== "new" ?
+                       assignments.find((assignment)=>(assignment._id === assignmentId)) :
+                       newAssignment;
+
     const navigate = useNavigate();
-    const handleSave = () => {
-        console.log("Actually saving assignment TBD in later assignments");
-        navigate(`/Kanbas/Courses/${courseId}/Assignments`);
-    };
+    console.log(assignment);
+
+    if(assignmentId !== "new"){
+
+    }
+
     return (
         <div className="col-11 wd-wrapper">
             <div>
                 <h2>Assignment Name</h2>
                 <input value={assignment.title}
-                       className="form-control mb-2" />
-                <input value={assignment.description} className="form-control wd-description-input"/>
+                       className="form-control mb-2" onChange={(e)=>{
+                           dispatch(setNewAssignment({...assignment, title:e.target.value}))
+                }}/>
+
+                <input value={assignment.description} className="form-control wd-description-input"
+                       onChange={(e)=>{
+                           dispatch(setNewAssignment({...assignment, description:e.target.value}))
+                       }}
+                />
             </div>
 
             <div className="justify-content-end d-flex">
                 <div className="col-8 wd-points-assign">
                     <label className="d-flex align-items-center">Points
-                        <input className="form-control wd-points-input" value="100"/>
+                        <input className="form-control wd-points-input" value={assignment.points}
+                        onChange={(e)=>{
+                            const enteredPoints = parseInt(e.target.value, 10);
+                            const maxPoints = 100; // Maximum points allowed
+                            const minPoints = 0;
+
+                            // Check if enteredPoints exceeds the maximum
+                            if (enteredPoints > maxPoints) {
+                                // If it exceeds the maximum, set it to the maximum value
+                                dispatch(setNewAssignment({
+                                                              ...assignment,
+                                                              points: maxPoints
+                                                          }));
+                            } else if(isNaN(enteredPoints)){
+                                dispatch(setNewAssignment({
+                                                              ...assignment,
+                                                              points: minPoints
+                                                          }));
+                            }
+                                else {
+                                // If within the limit, update the points normally
+                                dispatch(setNewAssignment({
+                                                              ...assignment,
+                                                              points: enteredPoints
+                                                          }));
+                            }
+
+                        }}/>
                     </label>
                     <label className="d-flex mt-3 ">
                         Assign
                         <div className="form-control wd-assign-box">
                             <div className="mb-3">
                                 <strong>Due</strong>
-                                <input type="date" className="form-control"/>
+                                <input type="date" className="form-control"
+                                value={assignment.dueDate}
+                                onChange={(e)=>{
+                                    dispatch(setNewAssignment(
+                                        {...assignment, dueDate:new Date(e.target.value).
+                                            toISOString().split('T')[0]}
+                                    ))
+                                    }
+                                }/>
                             </div>
                             <div className="justify-content-between d-flex">
                                 <div className="wd-available-from">
                                     <strong>Available from</strong>
-                                    <input type="date" className="form-control"/>
+                                    <input type="date" className="form-control"
+                                           value={assignment.availableFromDate}
+                                           onChange={(e)=>{
+                                               dispatch(setNewAssignment(
+                                                   {...assignment,
+                                                       availableFromDate:new Date(e.target.value).
+                                                       toISOString().split('T')[0]}
+                                               ))
+                                           }
+                                           }/>
                                 </div>
                                 <div className="wd-available-from">
                                     <strong>Until</strong>
-                                    <input type="date" className="form-control"/>
+                                    <input type="date" className="form-control"
+                                    value={assignment.availableUntilDate}
+                                           onChange={(e)=>{
+                                               dispatch(setNewAssignment(
+                                                   {...assignment,
+                                                       availableUntilDate:new Date(e.target.value).
+                                                       toISOString().split('T')[0]}
+                                               ))
+                                           }
+                                           }/>
                                 </div>
                             </div>
                         </div>
@@ -59,12 +127,19 @@ function AssignmentEditor() {
                       className="btn btn-outline-dark wdKanbasBgGray wdKanbasBorderGray">
                     Cancel
                 </Link>
-                <button onClick={handleSave} className="btn btn-danger me-2">
+                <button onClick={
+                    ()=>{
+                        dispatch(setNewAssignment(
+                            {...assignment, course:courseId}
+                        ));
+                        dispatch(addAssignment());
+                        navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+
+                    }
+                } className="btn btn-danger me-2">
                     Save
                 </button>
             </div>
-
-
         </div>
     );
 }

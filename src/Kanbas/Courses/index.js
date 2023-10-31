@@ -57,7 +57,7 @@ function Courses({courses}) {
                         <Route path="Modules" element={<Modules/>} />
                         <Route path="Assignments" element={<Assignments/>} />
                         <Route
-                            path="Assignments/:assignmentId"
+                            path="/Assignments/Assignment-editor/:assignmentId/*"
                             element={<AssignmentEditor/>}/>
                         />
                         <Route path="Grades" element={<Grades/>}/>

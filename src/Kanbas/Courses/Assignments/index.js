@@ -6,13 +6,17 @@ import "./index.css";
 import {FaPlus} from "react-icons/fa";
 import {FaEllipsis} from "react-icons/fa6";
 import {Navigate} from "react-router";
+import {useDispatch, useSelector} from "react-redux";
+import {deleteAssignment} from "./assignmentsReducer";
 
 
 function Assignments() {
     const { courseId } = useParams();
-    const assignments = db.assignments;
+    const assignments = useSelector((state)=>state.assignmentsReducer.assignments);
     const courseAssignments = assignments.filter(
         (assignment) => assignment.course === courseId);
+    const dispatch = useDispatch();
+
     return (
         <div className="mt-3 col-10">
             <div className="d-flex justify-content-between wd-top-buttons">
@@ -21,8 +25,8 @@ function Assignments() {
                     <button type="button" className="btn wdKanbasBgGray">
                         <FaPlus/>Group
                     </button>
-
-                    <Link to={`/Kanbas/Courses/Assignments/assignment-editor`} className="btn btn-danger">
+                    {/* + Assignment Button*/}
+                    <Link to={`/Kanbas/Courses/${courseId}/Assignments/Assignment-editor/new`} className="btn btn-danger">
                         <FaPlus/> Assignment
                     </Link>
                     <button type="button" className="btn wdKanbasBgGray">
@@ -37,14 +41,23 @@ function Assignments() {
                 {courseAssignments.map((assignment) => (
                     <Link
                         key={assignment._id}
-                        to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
+                        to={`/Kanbas/Courses/${courseId}/Assignments/Assignment-editor/${assignment._id}`}
                         className="list-group-item wd-assignment-item">
-                        <strong>{assignment.title}</strong>
-                        <div>
-                            <small>
-                                <span className="wdKanbasRed">Multiple Modules</span> |
-                                Due {assignment.dueDate} | {assignment.points} pts
-                            </small>
+                        <div className="d-flex justify-content-between">
+                            <div>
+                                <strong>{assignment.title}</strong>
+                                <div>
+                                    <small>
+                                        <span className="wdKanbasRed">Multiple Modules</span> |
+                                        Due {assignment.dueDate} | {assignment.points} pts
+                                    </small>
+                                </div>
+                            </div>
+                            <button className="btn btn-danger"
+                            onClick={(e)=> {
+                                e.preventDefault();
+                                dispatch(deleteAssignment(assignment._id));
+                            }}>Delete</button>
                         </div>
 
                     </Link>
