@@ -37,7 +37,7 @@ function AssignmentEditor() {
                        className="form-control mb-2" onChange={(e)=>{
                            dispatch(setNewAssignment({...assignment, title:e.target.value}))
                             if(assignmentId !== "new"){
-                                dispatch(updateAssignment(assignment));
+                                dispatch(updateAssignment(newAssignment));
                             }
                        }
                     }
@@ -46,6 +46,9 @@ function AssignmentEditor() {
                 <input value={assignment.description} className="form-control wd-description-input"
                        onChange={(e)=>{
                            dispatch(setNewAssignment({...assignment, description:e.target.value}))
+                           if(assignmentId !== "new"){
+                               dispatch(updateAssignment(newAssignment));
+                           }
                        }}
                 />
             </div>
@@ -79,6 +82,9 @@ function AssignmentEditor() {
                                                               points: enteredPoints
                                                           }));
                             }
+                            if(assignmentId !== "new"){
+                                dispatch(updateAssignment(newAssignment));
+                            }
 
                         }}/>
                     </label>
@@ -94,6 +100,9 @@ function AssignmentEditor() {
                                         {...assignment, dueDate:new Date(e.target.value).
                                             toISOString().split('T')[0]}
                                     ))
+                                    if(assignmentId !== "new"){
+                                        dispatch(updateAssignment(newAssignment));
+                                    }
                                     }
                                 }/>
                             </div>
@@ -108,6 +117,9 @@ function AssignmentEditor() {
                                                        availableFromDate:new Date(e.target.value).
                                                        toISOString().split('T')[0]}
                                                ))
+                                               if(assignmentId !== "new"){
+                                                   dispatch(updateAssignment(newAssignment));
+                                               }
                                            }
                                            }/>
                                 </div>
@@ -121,6 +133,9 @@ function AssignmentEditor() {
                                                        availableUntilDate:new Date(e.target.value).
                                                        toISOString().split('T')[0]}
                                                ))
+                                               if(assignmentId !== "new"){
+                                                   dispatch(updateAssignment(newAssignment));
+                                               }
                                            }
                                            }/>
                                 </div>
