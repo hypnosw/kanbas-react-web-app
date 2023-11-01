@@ -1,20 +1,24 @@
 import db from "../../Database";
 import {createSlice} from "@reduxjs/toolkit";
 import assignments from "./index";
-const emptyAssignment = {
-    _id:new Date().getTime().toString(),
-    course: "Unknown",
-    title:"New Title",
-    dueDate: "2023-10-28",
-    points: 100,
-    availableFromDate: "2000-01-01",
-    availableUntilDate: "2100-01-01",
-    description: "No description yet for now",
+function emptyAssignment() {
+    return ({
+        _id: new Date().getTime().toString(),
+        course: "Unknown",
+        title: "New Title",
+        dueDate: "2023-10-28",
+        points: 100,
+        availableFromDate: "2000-01-01",
+        availableUntilDate: "2100-01-01",
+        description: "No description yet for now",
+    })
 }
+
+
 
 const initialState = {
     assignments:db.assignments,
-    newAssignment:emptyAssignment,
+    newAssignment:emptyAssignment(),
 };
 
 const assignmentSlice = createSlice(
@@ -23,11 +27,11 @@ const assignmentSlice = createSlice(
         initialState,
         reducers:{
             emptyNewAssignment:(state)=>{
-                state.newAssignment = emptyAssignment;
+                state.newAssignment = emptyAssignment();
             },
             addAssignment:(state, action)=>{
                 state.assignments = [...state.assignments, state.newAssignment];
-                state.newAssignment = emptyAssignment;
+                state.newAssignment = emptyAssignment();
             },
             deleteAssignment:(state, action)=>{
                 state.assignments = state.assignments.filter((a)=> a._id !== action.payload);

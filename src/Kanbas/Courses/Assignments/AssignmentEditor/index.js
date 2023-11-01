@@ -18,10 +18,11 @@ function AssignmentEditor() {
     const dispatch = useDispatch();
 
     const { courseId, assignmentId } = useParams();
+    console.log(assignmentId);
+    const existingAssignment = assignments.find((assignment)=>(assignment._id === assignmentId));
+    console.log(existingAssignment);
+    const assignment = (assignmentId  !== "new") ? existingAssignment: newAssignment;
 
-    const assignment = assignmentId  !== "new" ?
-                       assignments.find((assignment)=>(assignment._id === assignmentId)) :
-                       newAssignment;
 
 
     const navigate = useNavigate();
@@ -35,7 +36,12 @@ function AssignmentEditor() {
                 <input value={assignment.title}
                        className="form-control mb-2" onChange={(e)=>{
                            dispatch(setNewAssignment({...assignment, title:e.target.value}))
-                }}/>
+                            if(assignmentId !== "new"){
+                                dispatch(updateAssignment(assignment));
+                            }
+                       }
+                    }
+                />
 
                 <input value={assignment.description} className="form-control wd-description-input"
                        onChange={(e)=>{
