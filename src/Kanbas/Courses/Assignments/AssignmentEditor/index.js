@@ -1,6 +1,5 @@
-import React, {useEffect} from "react";
+import React from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import db from "../../../Database";
 import "./index.css";
 import {useDispatch, useSelector} from "react-redux";
 import {
@@ -9,7 +8,6 @@ import {
     setNewAssignment,
     updateAssignment
 } from "../assignmentsReducer";
-import jsonStringify from "../../../../Labs/a3/JsonStringify";
 
 
 function AssignmentEditor() {
@@ -97,8 +95,8 @@ function AssignmentEditor() {
                                 value={assignment.dueDate}
                                 onChange={(e)=>{
                                     dispatch(setNewAssignment(
-                                        {...assignment, dueDate:new Date(e.target.value).
-                                            toISOString().split('T')[0]}
+                                        {...assignment, dueDate:new Date(e.target.value)
+                                                .toISOString().split('T')[0]}
                                     ))
                                     if(assignmentId !== "new"){
                                         dispatch(updateAssignment(newAssignment));
@@ -114,8 +112,8 @@ function AssignmentEditor() {
                                            onChange={(e)=>{
                                                dispatch(setNewAssignment(
                                                    {...assignment,
-                                                       availableFromDate:new Date(e.target.value).
-                                                       toISOString().split('T')[0]}
+                                                       availableFromDate:new Date(e.target.value)
+                                                           .toISOString().split('T')[0]}
                                                ))
                                                if(assignmentId !== "new"){
                                                    dispatch(updateAssignment(newAssignment));
@@ -130,8 +128,8 @@ function AssignmentEditor() {
                                            onChange={(e)=>{
                                                dispatch(setNewAssignment(
                                                    {...assignment,
-                                                       availableUntilDate:new Date(e.target.value).
-                                                       toISOString().split('T')[0]}
+                                                       availableUntilDate:new Date(e.target.value)
+                                                           .toISOString().split('T')[0]}
                                                ))
                                                if(assignmentId !== "new"){
                                                    dispatch(updateAssignment(newAssignment));
@@ -163,6 +161,7 @@ function AssignmentEditor() {
                         }
                         else {
                             dispatch(updateAssignment(assignment));
+                            dispatch(emptyNewAssignment());
                         }
                         navigate(`/Kanbas/Courses/${courseId}/Assignments`);
 
