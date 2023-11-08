@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 
 function WorkingWithArrays() {
+
     const API = "http://localhost:4000/a5/todos";
     const [todo, setTodo] = useState({
                                          id: 1,
@@ -11,6 +12,38 @@ function WorkingWithArrays() {
                                          completed: false,
                                      });
     const [todos, setTodos] = useState([]);
+    const postTodo = async () => {
+        const response = await axios.post(API, todo);
+        setTodos([...todos, response.data]);
+    };
+    const [errorMessage, setErrorMessage] = useState(null);
+    const deleteTodo = async (todo) => {
+        try {
+            const response = await axios.delete(
+                `${API}/${todo.id}`);
+            setTodos(todos.filter((t) => t.id !== todo.id));
+        } catch (error) {
+            console.log(error);
+            setErrorMessage(error.response.data.message);
+        }
+
+    };
+
+    const updateTodo = async () => {
+        try {
+            const response = await axios.put(
+                `${API}/${todo.id}`, todo);
+            setTodos(todos.map((t) => (
+                t.id === todo.id ? todo : t)));
+            setTodo({});
+        } catch (error) {
+            console.log(error);
+            setErrorMessage(error.response.data.message);
+        }
+
+    };
+
+
     const fetchTodos = async () => {
         const response = await axios.get(API);
         setTodos(response.data);
@@ -41,6 +74,7 @@ function WorkingWithArrays() {
 
     return (
         <div>
+
             <h3>Working with Arrays</h3>
             <input
                 value={todo.id}
@@ -49,6 +83,30 @@ function WorkingWithArrays() {
                 className="form-control mb-2"
                 type="number"
             />
+            <textarea
+                onChange={(e) => setTodo({ ...todo,
+                                             description: e.target.value })}
+                value={todo.description} type="text"
+            />
+            <input
+                onChange={(e) => setTodo({
+                                             ...todo, due: e.target.value })}
+                value={todo.due} type="date"
+            />
+            <label>
+                <input
+                    onChange={(e) => setTodo({
+                                                 ...todo, completed: e.target.checked })}
+                    value={todo.completed} type="checkbox"
+                />
+                Completed
+            </label>
+            <button onClick={postTodo} >
+                Post Todo
+            </button>
+            <button onClick={updateTodo}>
+                Update Todo
+            </button>
             <ul className="list-group">
                 {todos.map((todo) => (
                     <li key={todo.id}
@@ -59,11 +117,19 @@ function WorkingWithArrays() {
                             className="btn btn-warning me-2 float-end" >
                             Edit
                         </button>
+
                         <button
-                            onClick={() => removeTodo(todo)}
-                            className="btn btn-danger float-end" >
-                            Remove
+                            onClick={() => deleteTodo(todo)}
+                            className="btn btn-danger float-end ms-2">
+                            Delete
                         </button>
+                        <input
+                            checked={todo.completed}
+                            type="checkbox" readOnly
+                        />
+                        {todo.title}
+                        <p>{todo.description}</p>
+                        <p>{todo.due}</p>
                     </li>
                 ))}
             </ul>
@@ -71,7 +137,11 @@ function WorkingWithArrays() {
                     className="btn btn-primary mb-2 w-100">
                 Create Todo
             </button>
-
+            {errorMessage && (
+                <div className="alert alert-danger mb-2 mt-2">
+                    {errorMessage}
+                </div>
+            )}
             <h3>Deleting from an Array</h3>
             <a href={`${API}/${todo.id}/delete`}
                className="btn btn-primary me-2">
