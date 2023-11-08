@@ -6,6 +6,7 @@ import Assignment4 from "./a4/index";
 import {Route, Routes} from "react-router";
 import store from "./store";
 import {Provider} from "react-redux";
+import Assignment5 from "./a5";
 
 function Labs() {
     return(
@@ -16,6 +17,7 @@ function Labs() {
                     <Route path="/" element={<h1>Pick an option from NavBar</h1>}></Route>
                     <Route path="/a3" element={<Assignment3/>}></Route>
                     <Route path="/a4" element={<Assignment4/>}></Route>
+                    <Route path="/a5" element={<Assignment5/>}></Route>
                 </Routes>
             </div>
         </Provider>
