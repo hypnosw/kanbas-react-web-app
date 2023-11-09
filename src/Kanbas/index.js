@@ -51,10 +51,18 @@ function Kanbas() {
             (c) => c._id !== course));
     };
 
-    const updateCourse = () => {
+    const updateCourse =  async(c) => {
+        const response = await axios.put(
+            `${URL}/${c._id}`,
+            course
+        );
+        console.log(response.data);
+        console.log(c.name);
+        console.log(course.name);
         setCourses(
             courses.map((c) => {
                 if (c._id === course._id) {
+
                     return course;
                 } else {
                     return c;

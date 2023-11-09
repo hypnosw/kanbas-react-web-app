@@ -32,7 +32,7 @@ export const CourseCard = ({course, deleteCourse, setCourse, updateCourse}) => {
                             <button className=" wd-course-btn wdKanbasBorderGray wdKanbasBgGray"
                                     onClick={(event)=> {
                                         event.preventDefault();
-                                        updateCourse();
+                                        updateCourse(course);
                                     }}>
                                 Update
                             </button>
