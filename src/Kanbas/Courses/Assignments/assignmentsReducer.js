@@ -17,7 +17,7 @@ function emptyAssignment() {
 
 
 const initialState = {
-    assignments:db.assignments,
+    assignments:[],
     newAssignment:emptyAssignment(),
 };
 
@@ -48,11 +48,14 @@ const assignmentSlice = createSlice(
             setNewAssignment:(state, action)=>{
                 state.newAssignment = action.payload;
             },
+            setAssignments:(state, action)=>{
+                state.assignments = action.payload;
+            }
 
 
         }
     }
 );
 
-export const{emptyNewAssignment, setNewAssignment, addAssignment, deleteAssignment,updateAssignment} = assignmentSlice.actions;
+export const{setAssignments, emptyNewAssignment, setNewAssignment, addAssignment, deleteAssignment,updateAssignment} = assignmentSlice.actions;
 export default assignmentSlice.reducer;

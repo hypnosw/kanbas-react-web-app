@@ -19,19 +19,19 @@ function Courses() {
 
     const { courseId } = useParams();
     const [course, setCourse] = useState({});
-    console.log(course);
+    // console.log(course);
     const findCourseById = async (courseId) => {
         const response = await axios.get(
             `${URL}/${courseId}`
         );
-        console.log(`Response.data: ${response.data}`);
+        // console.log(`Response.data: ${response.data}`);
 
         setCourse(response.data);
     };
     useEffect(() => {
         findCourseById(courseId);
     }, [courseId]);
-    console.log(`After UseEffect: ${JSON.stringify(course)}`);
+    // console.log(`After UseEffect: ${JSON.stringify(course)}`);
 
     const { pathname } = useLocation();
     const pathArray = pathname.split("/");
