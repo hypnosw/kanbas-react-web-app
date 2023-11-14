@@ -25,7 +25,6 @@ function AssignmentEditor() {
     const assignment = (assignmentId  !== "new") ? existingAssignment: newAssignment;
 
 
-
     const navigate = useNavigate();
     // console.log("New Assignment:" + JSON.stringify(newAssignment));
     // console.log("Assignment:" + JSON.stringify(assignment));
