@@ -24,7 +24,7 @@ function Kanbas() {
                                                department: "D134",
                                                credits: 3
                                            });
-    const URL = "http://localhost:4000/api/courses";
+    const URL = "https://kanbas-node-server-app-t558.onrender.com/api/courses";
     const findAllCourses = async () => {
         const response = await axios.get(URL);
         setCourses(response.data);
