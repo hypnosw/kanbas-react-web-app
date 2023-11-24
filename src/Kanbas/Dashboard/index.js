@@ -18,7 +18,8 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
                 <div className="wd-courses-wrapper">
                     <div className="d-flex justify-content-between align-items-center">
                         <h2 className="m-2 p-0">Published Courses({courses.length})</h2>
-                        <button type="button" className="wd-add-course-btn btn btn-outline-dark" onClick={addNewCourse} >
+                        <button type="button" className="wd-add-course-btn btn btn-outline-dark"
+                                onClick={addNewCourse} >
                             Add
                         </button>
                     </div>
@@ -37,7 +38,7 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
 
                     <hr/>
 
-                    <div className="wd-cards d-flex col-9 flex-row justify-content-around flex-wrap">
+                    <div className="wd-cards d-flex col-9 flex-row flex-wrap">
                         {courses.map(
                                 (course) => {
                                     return (<CourseCard course={course} deleteCourse={deleteCourse}

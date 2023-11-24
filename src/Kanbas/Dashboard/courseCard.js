@@ -13,7 +13,7 @@ export const CourseCard = ({course, deleteCourse, setCourse, updateCourse}) => {
     };
 
     return (
-        <div className="course-card">
+        <div className="course-card me-4">
             <Link key={course._id} to={`/Kanbas/Courses/${course._id}/Home`} >
                 <div className="card">
                     {/*<img className="card-img-top" src="..." alt="Card image cap"/>*/}
@@ -32,7 +32,7 @@ export const CourseCard = ({course, deleteCourse, setCourse, updateCourse}) => {
                             <button className=" wd-course-btn wdKanbasBorderGray wdKanbasBgGray"
                                     onClick={(event)=> {
                                         event.preventDefault();
-                                        updateCourse();
+                                        updateCourse(course);
                                     }}>
                                 Update
                             </button>

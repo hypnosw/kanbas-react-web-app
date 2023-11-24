@@ -1,21 +1,30 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Link, useParams } from "react-router-dom";
-import db from "../../Database";
 import "../../kanbas-styles.css";
 import "./index.css";
 import {FaPlus} from "react-icons/fa";
 import {FaEllipsis} from "react-icons/fa6";
-import {Navigate} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
-import {deleteAssignment} from "./assignmentsReducer";
+import {deleteAssignment, setAssignments} from "./assignmentsReducer";
+import {deleteDBAssignment, findAllAssignments} from "./client";
 
 
 function Assignments() {
     const { courseId } = useParams();
     const assignments = useSelector((state)=>state.assignmentsReducer.assignments);
-    const courseAssignments = assignments.filter(
-        (assignment) => assignment.course === courseId);
+
     const dispatch = useDispatch();
+
+    useEffect(()=>{
+        findAllAssignments(courseId).then(
+            (assignment)=>{dispatch(setAssignments(assignment))}
+        );}, [courseId]);
+
+    const handleDelete = (id)=>{
+        deleteDBAssignment(id).then(
+            dispatch(deleteAssignment(id))
+        );
+    };
 
     return (
         <div className="mt-3 col-10">
@@ -38,7 +47,7 @@ function Assignments() {
             <h2 className="wd-assignment-title wdKanbasBgGray
              wdKanbasBorderGray">Assignments for course {courseId}</h2>
             <div className="list-group">
-                {courseAssignments.map((assignment) => (
+                {assignments.map((assignment) => (
                     <Link
                         key={assignment._id}
                         to={`/Kanbas/Courses/${courseId}/Assignments/Assignment-editor/${assignment._id}`}
@@ -56,7 +65,7 @@ function Assignments() {
                             <button className="btn btn-danger"
                             onClick={(e)=> {
                                 e.preventDefault();
-                                dispatch(deleteAssignment(assignment._id));
+                                handleDelete(assignment._id);
                             }}>Delete</button>
                         </div>
 

@@ -9,6 +9,9 @@ import {
     updateAssignment
 } from "../assignmentsReducer";
 
+import jsonStringify from "../../../../Labs/a3/JsonStringify";
+import {postAssignment, putAssignment} from "../client";
+
 
 function AssignmentEditor() {
     const assignments = useSelector((state)=>state.assignmentsReducer.assignments);
@@ -16,16 +19,15 @@ function AssignmentEditor() {
     const dispatch = useDispatch();
 
     const { courseId, assignmentId } = useParams();
-    console.log(assignmentId);
+    // console.log(assignmentId);
     const existingAssignment = assignments.find((assignment)=>(assignment._id === assignmentId));
-    console.log(existingAssignment);
+    // console.log(existingAssignment);
     const assignment = (assignmentId  !== "new") ? existingAssignment: newAssignment;
 
 
-
     const navigate = useNavigate();
-    console.log("New Assignment:" + JSON.stringify(newAssignment));
-    console.log("Assignment:" + JSON.stringify(assignment));
+    // console.log("New Assignment:" + JSON.stringify(newAssignment));
+    // console.log("Assignment:" + JSON.stringify(assignment));
 
     return (
         <div className="col-11 wd-wrapper">
@@ -140,9 +142,7 @@ function AssignmentEditor() {
                             </div>
                         </div>
                     </label>
-
                 </div>
-
             </div>
             <hr/>
             <div className="d-block float-end">
@@ -157,14 +157,14 @@ function AssignmentEditor() {
                             dispatch(setNewAssignment(
                                 {...assignment, course:courseId}
                             ));
-                            dispatch(addAssignment());
+                            putAssignment(newAssignment._id, newAssignment)
+                                .then(dispatch(addAssignment()));
                         }
                         else {
-                            dispatch(updateAssignment(assignment));
-                            dispatch(emptyNewAssignment());
+                            postAssignment(assignment)
+                                .then(dispatch(updateAssignment(assignment)));
                         }
                         navigate(`/Kanbas/Courses/${courseId}/Assignments`);
-
                     }
                 } className="btn btn-danger me-2">
                     Save

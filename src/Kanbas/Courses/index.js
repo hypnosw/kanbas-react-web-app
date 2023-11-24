@@ -9,16 +9,34 @@ import Home from "./Home";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/AssignmentEditor";
 import Grades from "./Grades";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 
 
-function Courses({courses}) {
+function Courses() {
+    const URL = process.env.REACT_APP_SERVER_URL + "/courses";
+
     const { courseId } = useParams();
-    const course = courses.find((course) => course._id === courseId);
+    const [course, setCourse] = useState({});
+    // console.log(course);
+    const findCourseById = async (courseId) => {
+        const response = await axios.get(
+            `${URL}/${courseId}`
+        );
+        // console.log(`Response.data: ${response.data}`);
+
+        setCourse(response.data);
+    };
+    useEffect(() => {
+        findCourseById(courseId);
+    }, [courseId]);
+    // console.log(`After UseEffect: ${JSON.stringify(course)}`);
+
     const { pathname } = useLocation();
     const pathArray = pathname.split("/");
     const current = pathArray[pathArray.length -1];
-    console.log("path:" + pathname);
+    // console.log("path:" + pathname);
 
     return (
 
