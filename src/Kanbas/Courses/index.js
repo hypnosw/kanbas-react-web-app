@@ -15,7 +15,7 @@ import axios from "axios";
 
 
 function Courses() {
-    const URL = "https://kanbas-node-server-app-t558.onrender.com/api/courses";
+    const URL = process.env.REACT_APP_SERVER_URL + "/courses";
 
     const { courseId } = useParams();
     const [course, setCourse] = useState({});
