@@ -38,7 +38,7 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
 
                     <hr/>
 
-                    <div className="wd-cards d-flex col-9 flex-row justify-content-around flex-wrap">
+                    <div className="wd-cards d-flex col-9 flex-row flex-wrap">
                         {courses.map(
                                 (course) => {
                                     return (<CourseCard course={course} deleteCourse={deleteCourse}
