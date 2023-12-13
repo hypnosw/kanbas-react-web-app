@@ -13,9 +13,12 @@ function Signin() {
         <div>
             <h1>Signin</h1>
             <input className="form-control w-50 "
+                   placeholder={"username"}
                        value={credentials.username} onChange={(e) =>
                 setCredentials({...credentials, username: e.target.value})}/>
-            <input className="form-control w-50" value={credentials.password} onChange={(e) =>
+            <input className="form-control w-50"
+                   placeholder="password"
+                       value={credentials.password} onChange={(e) =>
                 setCredentials({...credentials, password: e.target.value})}/>
             <button onClick={signin} className="btn btn-primary"> Signin </button>
         </div>

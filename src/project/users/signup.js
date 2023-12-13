@@ -21,11 +21,13 @@ function Signup() {
             {error && <div>{error}</div>}
             <input
                 value={credentials.username}
+                placeholder={"username"}
                 onChange={(e) => setCredentials({
                                                     ...credentials,
                                                     username: e.target.value })} />
             <input
                 value={credentials.password}
+                placeholder={"password"}
                 onChange={(e) => setCredentials({
                                                     ...credentials,
                                                     password: e.target.value })} />
